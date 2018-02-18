@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personal data Dreamendy</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/shake.css" rel="stylesheet" media="all">
+    <style type="text/css">
+    #wrapper {
+        margin: 0 auto;
+        width: 90%;
+        text-align: center;
+    }
+    #wrapper p {
+        font-family: helvetica;
+        font-weight: bold;
+        font-size: 80px;
+        color: red;
+    }
+    </style>
+  
+<style>
+.box1 a{color:#000;text-decoration:underline;}
+<style>
+<style> 
+div1{ float:left} 
+</style> 
+<!-- 下雪 -->
+<style>
+h1 {
+  font-size: 46px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+.mainContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+}
+.title {
+  text-align: center;
+}
+</style>
+
+<!-- 禁止图片新窗口打开 -->
+<script language="javascript">
+function imgdragstart(){return false;}
+</script>
+<!-- 禁止图片新窗口打开 -->
+
+<!-- draggable="false" 禁止图片新窗口打开-->
+
+</head>
+<body onselectstart="return false;">
+<canvas id="canvas"></canvas>
+<div class="mainContainer">
+<div class="audio-main w3ls">
+	<div class="audio-record-list">
+	<div class="profile">
+			 <div class="profile-top wthree">
+				 <div class="pic-sec">
+					 <div class="pic" >
+						 <img class="shake shake-slow" src="images/gg.jpg" draggable="false" alt=""/>
+					 </div>
+					 <div class="pic_info">
+						 <h2><font face="BELLB" color="white">Dreamendy</font></h2>
+						 <h3><font face="仿宋" color="white">He was still looking for her who didn't belong to him.</font></h3>
+					 </div>
+					 <div class="clear"></div>
+				 </div>
+				 <div class="media">
+<font face="仿宋" color="white">My wish is... The peace of the world..</font>
+				 	</div>
+				 <div class="media">
+<!--请务必保留版权信息-->
+				 	<div class="text clearfix" style="text-align:center;">
+<span style="float:center;">
+	<font face="仿宋" color="white"><font face="BELLB" color="white">©</font> Copyright 2018 <div1 class="box1"><a href="http://www.dreamendy.com" target="_blank"><font color="white">Dreamendy</font></a></div1>. All Rights Reserved.</font>
+	</span>
+<!--务必保留以上版权信息-->
+				 		</div>
+				 	</div>
+					 <div class="clear"></div>
+				 </div>
+				 
+			 </div>
+		 </div>
+</div>
+
+<!-- 代码 结束 -->
+
+<!-- 音乐 开始 -->
+
+<!-- 音乐 结束 -->
+
+<!-- 禁止拖动图片新窗口打开 -->
+<!-- <img src=""> -->
+<script language="javascript">
+for(i in document.images)document.images[i].ondragstart=imgdragstart;
+</script>
+<!-- 禁止拖动图片新窗口代码结束 -->
+
+<!-- 下雪特效开始 -->
+<script>
+var c = document.getElementById('canvas'), 
+    $ = c.getContext("2d"),
+	 w = c.width = window.innerWidth, 
+    h = c.height = window.innerHeight;
+
+function makeItSnow() {
+  var snow,  
+		arr = [],
+		num = 1500,
+		tsc = 1, 
+		sp = 1;
+		sc = 1.3, 
+		t = 0, 
+		mv = 20, 
+		min = 1;
+	for (var i = 0; i < num; ++i) {
+      snow = new Flake();
+      snow.y = Math.random() * (h + 50);
+      snow.x = Math.random() * w;
+      snow.t = Math.random() * (Math.PI * 2);
+      snow.sz = (100 / (10 + (Math.random() * 100))) * sc;
+      snow.sp = (Math.pow(snow.sz * .8, 2) * .15) * sp;
+      snow.sp = snow.sp < min ? min : snow.sp;
+      arr.push(snow);
+    }
+  	go();
+  	function go(){
+   	window.requestAnimationFrame(go);
+      $.clearRect(0, 0, w, h);
+      $.fillRect(0, 0, w, h);
+      $.fill();
+        for (var i = 0; i < arr.length; ++i) {
+          f = arr[i];
+          f.t += .05;
+          f.t = f.t >= Math.PI * 2 ? 0 : f.t;
+          f.y += f.sp;
+          f.x += Math.sin(f.t * tsc) * (f.sz * .3);
+          if (f.y > h + 50) f.y = -10 - Math.random() * mv;
+          if (f.x > w + mv) f.x = - mv;
+          if (f.x < - mv) f.x = w + mv;
+          f.draw();
+		  }
+ 	}
+ 	function Flake() {
+ 		this.draw = function() {
+      	this.g = $.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.sz);
+			this.g.addColorStop(0, 'hsla(255,255%,255%,1)');
+			this.g.addColorStop(1, 'hsla(255,255%,255%,0)');
+			$.moveTo(this.x, this.y);
+			$.fillStyle = this.g;
+			$.beginPath();
+			$.arc(this.x, this.y, this.sz, 0, Math.PI * 2, true);
+			$.fill();
+		}
+	}
+}
+
+
+window.addEventListener('resize', function(){
+  c.width = w = window.innerWidth;
+  c.height = h = window.innerHeight;
+}, false);
+
+makeItSnow();</script>
+<!-- 下雪特效结束 -->
+</body>
+</html>
